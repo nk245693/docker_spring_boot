@@ -1,9 +1,9 @@
 pipeline {
     agent any
 
-    /*environment {
-        registry = "211223789150.dkr.ecr.us-east-1.amazonaws.com/my-docker-repo"
-    }*/
+    environment {
+        registry = "public.ecr.aws/b0l1h6a1/mydockerrepo"
+    }
     stages {
         stage('Checkout') {
             steps {
@@ -17,7 +17,7 @@ pipeline {
             }
         }
         
-        /*stage ("Build Image") {
+        stage ("Build Image") {
             steps {
                 script {
                     docker.build registry
@@ -25,7 +25,7 @@ pipeline {
             }
         }
         
-        stage ("Push to ECR") {
+       /* stage ("Push to ECR") {
             steps {
                 script {
                     sh "aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 211223789150.dkr.ecr.us-east-1.amazonaws.com"
