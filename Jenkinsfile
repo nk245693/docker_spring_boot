@@ -1,13 +1,13 @@
 pipeline {
     agent any
 
-    environment {
+    /*environment {
         registry = "211223789150.dkr.ecr.us-east-1.amazonaws.com/my-docker-repo"
-    }
+    }*/
     stages {
         stage('Checkout') {
             steps {
-                checkout scmGit(branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/akannan1087/docker-spring-boot']])
+                checkout scmGit(branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[url: ' https://github.com/nk245693/docker_spring_boot.git']])
             }
         }
         
@@ -17,7 +17,7 @@ pipeline {
             }
         }
         
-        stage ("Build Image") {
+        /*stage ("Build Image") {
             steps {
                 script {
                     docker.build registry
@@ -45,6 +45,6 @@ pipeline {
             steps {
                     sh "helm upgrade myrelease-21 springboot-0.1.0.tgz"
                 }
-            }
+            }*/
     }
 }
