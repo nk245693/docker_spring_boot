@@ -21,8 +21,11 @@ pipeline {
             steps {
                 script {
                     sh "pwd"
-                    docker.build registry -v /var/lib/jenkins/workspace/project-eks:/app .
-                    //sh "docker build -t   "
+                   docker.build('registry')
+                  .withRun('-v /var/lib/jenkins/workspace/project-eks:/app .') {
+                  // Additional steps or commands within the Docker container
+    }
+
                 }
             }
         }
