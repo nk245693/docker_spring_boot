@@ -21,7 +21,8 @@ pipeline {
             steps {
                 script {
                     sh "pwd"
-                    docker.build -t spring .
+                    //docker.build registry
+                    sh "docker build -t ${registry} "
                 }
             }
         }
