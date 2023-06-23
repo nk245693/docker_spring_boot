@@ -21,7 +21,7 @@ pipeline {
             steps {
                 script {
                     sh "pwd"
-                    docker.build registry
+                    docker build registry
                 }
             }
         }
