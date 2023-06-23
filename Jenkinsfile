@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        registry = "public.ecr.aws/y7f3w2i5/mydockerrepo /var/lib/jenkins/workspace/project-eks"
+        registry = "public.ecr.aws/y7f3w2i5/mydockerrepo ."
     }
     stages {
         stage('Checkout') {
@@ -22,7 +22,7 @@ pipeline {
                 script {
                     sh "pwd"
                     //docker.build registry
-                    sh "docker build -t ${registry} "
+                    sh "docker build -t ${registry} ."
                 }
             }
         }
