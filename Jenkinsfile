@@ -21,8 +21,8 @@ pipeline {
             steps {
                 script {
                     sh "pwd"
-                    //docker.build registry
-                    sh "docker build -t ${registry}"
+                    docker.build registry -v /var/lib/jenkins/workspace/project-eks:/app .
+                    //sh "docker build -t   "
                 }
             }
         }
