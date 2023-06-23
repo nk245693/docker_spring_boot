@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        registry = "public.ecr.aws/y7f3w2i5/mydockerrepo"
+        registry = "public.ecr.aws/y7f3w2i5/mydockerrepo /var/lib/jenkins/workspace/project-eks"
     }
     stages {
         stage('Checkout') {
@@ -30,7 +30,7 @@ pipeline {
             steps {
                 script {
                     sh "aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin public.ecr.aws/y7f3w2i5/mydockerrepo"
-                    sh "docker push public.ecr.aws/y7f3w2i5/mydockerrepo:latest"
+                    sh "docker push public.ecr.aws/y7f3w2i5/mydockerrepo /var/lib/jenkins/workspace/project-eks:latest"
                     
                 }
             }
