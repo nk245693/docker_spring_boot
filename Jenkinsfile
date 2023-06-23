@@ -20,6 +20,7 @@ pipeline {
         stage ("Build Image") {
             steps {
                 script {
+                    sh "pwd"
                     docker.build registry
                 }
             }
