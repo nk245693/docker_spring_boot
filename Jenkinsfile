@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        registry = "public.ecr.aws/b0l1h6a1/mydockerrepo"
+        registry = "public.ecr.aws/y7f3w2i5/mydockerrepo"
     }
     stages {
         stage('Checkout') {
@@ -17,7 +17,7 @@ pipeline {
             }
         }
         
-       /* stage ("Build Image") {
+        stage ("Build Image") {
             steps {
                 script {
                     docker.build registry
@@ -28,14 +28,14 @@ pipeline {
         stage ("Push to ECR") {
             steps {
                 script {
-                    sh "aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 211223789150.dkr.ecr.us-east-1.amazonaws.com"
-                    sh "docker push 211223789150.dkr.ecr.us-east-1.amazonaws.com/my-docker-repo:latest"
+                    sh "aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin public.ecr.aws/y7f3w2i5/mydockerrepo"
+                    sh "docker push public.ecr.aws/y7f3w2i5/mydockerrepo:latest"
                     
                 }
             }
         }
         
-        stage ("Helm package") {
+        /*stage ("Helm package") {
             steps {
                     sh "helm package springboot"
                 }
