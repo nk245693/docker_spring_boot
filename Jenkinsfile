@@ -15,7 +15,7 @@ pipeline {
             steps {
                 sh "mvn clean install"
                 sh"pwd"
-                sh "mv  /var/lib/jenkins/workspace/project-eks/ home"
+                sh "mv /project-eks/ home"
             }
         }
         
