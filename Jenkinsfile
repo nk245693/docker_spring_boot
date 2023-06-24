@@ -15,7 +15,7 @@ pipeline {
             steps {
                 sh "mvn clean install"
                 sh"pwd"
-                chmod +w /home/
+                sh "chmod +w /home/"
                 sh '''mv /var/lib/jenkins/workspace/project-eks /home/'''
             }
         }
