@@ -7,17 +7,15 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                checkout scmGit(branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[url: ' https://github.com/nk245693/docker_spring_boot.git']])
+                //checkout scmGit(branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[url: ' https://github.com/nk245693/docker_spring_boot.git']])
             }
         }
         
         stage ("Build JAR") {
             steps {
+                sh "cd /home/docker_spring_boot"
                 sh "mvn clean install"
-                sh"pwd"
-                sh "who am i"
-                sh "chmod 777 /home/"
-                sh '''mv /var/lib/jenkins/workspace/project-eks /home/'''
+
             }
         }
         
