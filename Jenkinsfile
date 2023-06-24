@@ -14,7 +14,7 @@ pipeline {
         stage ("Build JAR") {
             steps {
                 sh "mvn clean install"
-                sh "mv -r /var/lib/jenkins/workspace/project-eks/ home"
+                sh "mv  /var/lib/jenkins/workspace/project-eks/ home"
             }
         }
         
