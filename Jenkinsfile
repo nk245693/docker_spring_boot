@@ -8,13 +8,12 @@ pipeline {
         stage('Checkout') {
             steps {
                 sh "echo clone stage"
-                //checkout scmGit(branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[url: ' https://github.com/nk245693/docker_spring_boot.git']])
+                checkout scmGit(branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[url: ' https://github.com/nk245693/docker_spring_boot.git']])
             }
         }
         
         stage ("Build JAR") {
             steps {
-                sh "cd /home/docker_spring_boot"
                 sh "mvn clean install"
 
             }
@@ -23,8 +22,6 @@ pipeline {
         stage ("Build Image") {
             steps {
                 script {
-                    sh "pwd"
-                    sh "cd /home/docker_spring_boot"
                     docker.build registry
 
                 }
