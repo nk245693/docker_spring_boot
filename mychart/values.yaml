@@ -5,7 +5,7 @@
 replicaCount: 1
 
 image:
-  repository: myacrrepo531.azurecr.io/myacrrepo531
+  repository: 505716311492.dkr.ecr.us-east-1.amazonaws.com/testcluster
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
   tag: ""
