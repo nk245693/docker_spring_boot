@@ -37,7 +37,7 @@ pipeline {
             }
         }
         
-        /*stage ("Helm package") {
+        stage ("Helm package") {
             steps {
                     sh "helm package springboot"
                 }
@@ -47,6 +47,6 @@ pipeline {
             steps {
                     sh "helm upgrade myrelease-21 springboot-0.1.0.tgz"
                 }
-            }*/
+            }
     }
 }
