@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        registry = "505716311492.dkr.ecr.us-east-1.amazonaws.com/testcluster"
+        registry = "505716311492.dkr.ecr.us-east-1.amazonaws.com/project-kubectl"
     }
     stages {
         stage('Checkout') {
@@ -33,7 +33,7 @@ pipeline {
             steps {
                 script {
                     sh "aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 505716311492.dkr.ecr.us-east-1.amazonaws.com"
-                    sh " docker push 505716311492.dkr.ecr.us-east-1.amazonaws.com/testcluster:latest"
+                    sh " docker push 505716311492.dkr.ecr.us-east-1.amazonaws.com/project-kubectl:latest"
                 }
             }
         }
